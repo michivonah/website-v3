@@ -1,1 +1,171 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* GENERAL */
 html{scroll-behavior: smooth;}
+
+body{
+    /* STYLING */
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--color);
+    font-family: var(--font);
+
+    /* VARIABLES */
+    --primary: #3498db;
+    --secondary: #2980b9;
+    --background: #181818;
+    --color: #f8f8f8;
+    --font: "Source Sans 3", sans-serif;
+    --baseRadius: 12px;
+    --baseTransition: all 250ms;
+}
+
+/* CONTENT */
+.content{
+    margin: auto;
+}
+
+.inner-width{
+    margin: auto;
+    width: 100%;
+    max-width: clamp(1100px, 90%, 1250px);
+}
+
+/* NAVIGATION */
+nav{
+    width: 100%;
+    height: 96px;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: var(--baseTransition);
+}
+
+nav.small{
+    height: 66px;
+}
+
+nav .inner-width{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+nav img{
+    width: auto;
+    height: 56px;
+}
+
+nav.small img{
+    height: 46px;
+}
+
+.nav-links a{
+    /* STYLE */
+    color: var(--color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin: 5px 10px;
+
+    /* HOVER EFFECT */
+    position: relative;
+}
+
+.nav-links a:hover, nav a:focus{
+    text-decoration: none;
+}
+
+.nav-links a:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color);
+    border-radius: 4px;
+    transition: var(--baseTransition);
+    transform: scaleX(0);
+}
+
+.nav-links a:not(:last-child):hover::after{
+    transform: scaleX(0.5);
+}
+
+.nav-links a:last-child{
+    padding: 5px 16px;
+    background: var(--primary);
+    color: var(--color);
+    border: none;
+    border-radius: var(--baseRadius);
+    transition: var(--baseTransition);
+}
+
+.nav-links a:last-child:hover{
+    background: var(--secondary);
+}
+
+.nav-toggle{
+    display: none;
+}
+
+@media screen and (max-width:640px){
+    .nav-toggle{
+        display: block;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    nav .inner-width{
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    nav.open{        
+        height: 100dvh;
+        background: var(--background);
+    }
+
+    nav.open .inner-width{        
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+
+    nav.open .nav-links{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    nav.open .nav-links a, nav i{
+        font-size: 2rem;
+    }
+
+    nav i{
+        font-size: 3rem;
+    }
+
+    .nav-links a:hover::after{
+        display: none;
+    }
+
+    .nav-links a:last-child{
+        background: inherit;
+        padding: inherit;
+    }
+}
