@@ -1,0 +1,19 @@
+baseURL = 'https://michivonah.ch'
+languageCode = 'de-CH'
+title = 'Michi von Ah - Informatiker, Tech-Enthusiast & Achterbahn-Fan'
+
+[params]
+    description = ""
+    tags = ""
+    author = "Michi von Ah"
+    faviconPath = ""
+    themeColor = ""
+
+defaultContentLanguage = 'de'
+[languages]
+  [languages.de]
+    contentDir = 'content/de'
+    languageName = 'Deutsch'
+  [languages.en]
+    contentDir = 'content/en'
+    languageName = 'English'
