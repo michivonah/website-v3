@@ -2,9 +2,13 @@
 
 {{ partial "navbar.html" . }}
 
-<div class="content inner-width">
-    {{ block "main" . }}
-    {{ end }}
+<div class="content">
+    {{ partial "hero.html" . }}
+
+    <div class="inner-width">
+        {{ block "main" . }}
+        {{ end }}
+    </div>
 </div>
 
 {{ partial "scrollTop.html" . }}
