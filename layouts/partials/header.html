@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <title>{{ .Site.Title }}</title>
+    <meta name="mobile-web-app-title" content="{{ .Site.Title }}">
+    <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+    <link id="favicon" rel="icon" type="image/png" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="icon" type="image/svg+xml" href="assets/logo/logo_black.svg">
+    <link rel="shortcut icon" type="image/png" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="apple-touch-icon" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ .Site.Params.faviconPath | relURL }}">
+    <link rel="canonical" href="{{ .Site.BaseURL }}">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async></script>
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" type="text/css" href='{{ "/style.css" | absURL }}' media="screen"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="screen"/>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="keywords" content="{{ .Site.Params.tags }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="robots" content="index">
+    <meta http-equiv="expires" content="43200">
+
+    <meta property="og:title" content="{{ .Site.Params.author }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:image" content="{{ .Site.Params.faviconPath | relURL }}">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:site_name" content="{{ .Site.Params.author }}">
+    <meta property="twitter:title" content="{{ .Site.Params.author }}">
+    <meta property="twitter:description" content="{{ .Site.Params.description }}">
+    <meta property="twitter:image" content="{{ .Site.Params.faviconPath | relURL }}">
+    <meta name="twitter:image:alt" content="{{ .Site.Params.author }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ .Site.Params.twitterUsername }}">
+    <meta name="twitter:creator" content="{{ .Site.Params.twitterUsername }}">
+
+    <meta name="theme-color" content="{{ .Site.Params.themeColor }}">
+    <meta name="mobile-web-app-status-bar-style" content="{{ .Site.Params.themeColor }}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="{{ .Site.Params.themeColor }}">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href='{{ "manifest.json" | absURL }}'>
+    <!-- <script defer src="{{ .Site.Params.umamiUrl }}" data-website-id="{{ .Site.Params.websiteId }}"></script> -->
+
+</head>
+<body>

@@ -1,19 +1,25 @@
 baseURL = 'https://michivonah.ch'
-languageCode = 'de-CH'
 title = 'Michi von Ah - Informatiker, Tech-Enthusiast & Achterbahn-Fan'
-
-[params]
-    description = ""
-    tags = ""
-    author = "Michi von Ah"
-    faviconPath = ""
-    themeColor = ""
 
 defaultContentLanguage = 'de'
 [languages]
   [languages.de]
     contentDir = 'content/de'
     languageName = 'Deutsch'
+    languageCode = 'de-CH'
+    weight = 10
   [languages.en]
     contentDir = 'content/en'
     languageName = 'English'
+    languageCode = 'en-CH'
+    weight = 20
+
+[params]
+    description = ""
+    tags = ""
+    author = "Michi von Ah"
+    faviconPath = ""
+    themeColor = "#3498db"
+    twitterUsername = "@michivonah"
+    umamiUrl = "https://data.mchvnh.ch/script.js"
+    websiteId = "9b188ed8-77b0-4238-aef5-c1b3d48106e4"
