@@ -1,5 +1,5 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('/fonts/source-sans-3.css');
 
 /* GENERAL */
 html{scroll-behavior: smooth;}
@@ -42,6 +42,7 @@ nav{
     top: 0;
     left: 0;
     transition: var(--baseTransition);
+    z-index: 1001;
 }
 
 nav.small{
