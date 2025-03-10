@@ -420,3 +420,37 @@ nav.small img{
     }
 }
 
+
+
+/* SCROLL TOP */
+.scroll-top{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+    background: var(--primary);
+    color: var(--color);
+    border-radius: var(--baseRadius);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    transition: var(--baseTransition);
+}
+
+.scroll-top a{
+    text-decoration: none;
+    color: var(--color);
+    margin-top: 0;
+    transition: var(--baseTransition);
+}
+
+.scroll-top a:hover,
+.scroll-top a:focus{
+    margin-top: -5px;
+}
+
+.scroll-top i{
+    stroke-width: 3px;
+}

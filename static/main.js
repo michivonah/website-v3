@@ -1,6 +1,10 @@
 // Add event listeners
 document.addEventListener('DOMContentLoaded', function(){
-    console.log("Hello World!");
+    scrollTopVisibilityUpdate();
+});
+
+window.addEventListener('scroll', function(){
+    scrollTopVisibilityUpdate();
 });
 
 document.querySelector(".nav-toggle").addEventListener('click', function(){
@@ -14,10 +18,10 @@ document.querySelectorAll(".nav-links a").forEach(element => {
 });
 
 // Generic functions
-function toggleDisplayByClass(className){
+function toggleDisplayByClass(className, displayType){
     let items = document.getElementsByClassName(className);
     for (const item of items){
-        item.style.display = ((item.style.display == "none") ? 'block' : 'none');
+        item.style.display = ((item.style.display == "none") ? displayType : 'none');
     }
 }
 
@@ -35,4 +39,11 @@ function switchClasses(selector, class1, class2){
 function toggleNav(){
     toggleClass("nav", "open");
     switchClasses(".nav-toggle i", "ai-text-align-right", "ai-cross");
+}
+
+// scroll top visibility
+function scrollTopVisibilityUpdate(){
+    const scrollTop = document.querySelector(".scroll-top");
+    scrollTop.style.display = ((window.scrollY > 20) ? 'flex' : 'none');
+    scrollTop.style.right = ((window.scrollY > 20) ? '0' : '-55px');
 }
