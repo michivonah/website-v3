@@ -1,0 +1,19 @@
+- title: Blogpost
+  slug: blogpost
+  icon: ai-newspaper
+  checked: True
+
+- title: YouTube
+  slug: youtube
+  icon: ai-youtube-fill
+  checked: True
+
+- title: GitHub
+  slug: github
+  icon: ai-github-fill
+  checked: False
+
+- title: Sonstiges
+  slug: other
+  icon: ai-paper
+  checked: True

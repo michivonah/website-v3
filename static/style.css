@@ -254,4 +254,169 @@ nav.small img{
     40%{
         transform: translateY(10%);
     }
-  }
+}
+
+/* PROJECTS */
+.projects{
+    text-align: center;
+}
+
+.tag-filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: baseline;
+    flex-wrap: wrap;
+    user-select: none;
+}
+
+.tag{
+    background: var(--color);
+    color: var(--primary);
+    margin: 10px 5px;
+    padding: 5px 16px;
+    border-radius: var(--baseRadius);
+    transition: var(--baseTransition);
+    border: 1px solid var(--primary);
+}
+
+.tag input{
+    display: none;
+}
+
+.tag:has(:checked){
+    background: var(--primary);
+    color: var(--color);
+}
+
+.project-list{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+/* Card animation: https://uiverse.io/suleymanlaarabidev/perfect-husky-88 */
+.project-card{
+    width: 30%;
+    min-width: 300px;
+    min-height: 250px;
+    margin: 20px 10px;
+    padding: 0 10px;
+    background-image: url(https://blog.michivonah.ch/content/images/size/w1200/2024/12/ResortPass-Review--1-.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: var(--baseRadius);
+    transition: var(--baseTransition);
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+}
+
+@media (pointer: fine){
+    .project-card:hover{
+        background: var(--primary);
+        background-image: url("assets/projects/sprinkle.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+        cursor: pointer;
+    }
+
+    .card-first{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--baseTransition);
+        opacity: 1;
+    }
+    
+    .project-card:hover .card-first{
+        height: 0;
+        opacity: 0;
+    }
+    
+    .card-second{
+        width: 100%;
+        height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--baseTransition);
+        opacity: 0;
+        font-size: 0;
+        transform: rotate(90deg) scale(-1);
+    }
+    
+    .project-card:hover .card-second{
+        height: 100%;
+        opacity: 1;
+        font-size: 1rem;
+        transform: rotate(0deg);
+    }
+    
+    .project-card:hover .card-second h2{
+        font-size: 1.2rem;
+    }
+    
+    .project-card:hover .card-second p{
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .project-card:hover .card-second i{
+        font-size: 2.5rem;
+    }
+}
+
+@media (pointer: coarse) or (pointer: none){
+    .project-card{
+        background: var(--primary);
+        background-image: url("assets/projects/sprinkle.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    }
+
+    .card-first{
+        display: none;
+    }
+
+    .card-second{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--baseTransition);
+
+        height: 100%;
+        opacity: 1;
+        font-size: 1rem;
+        transform: rotate(0deg);
+    }
+
+    .project-card .card-second h2{
+        font-size: 1.2rem;
+    }
+    
+    .project-card .card-second p{
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .project-card .card-second i{
+        font-size: 2.5rem;
+    }
+}
+

@@ -1,0 +1,16 @@
+- name: Instagram
+  link: https://instagram.com/michivonah
+  icon: ai-instagram-fill
+
+- name: LinkedIn
+  link: https://in.michivonah.ch
+  icon: ai-linkedin-box-fill
+
+- name: GitHub
+  link: https://github.com/michivonah
+  icon: ai-github-fill
+
+- name: Mail
+  link: mailto:info@michivonah.ch
+  icon: ai-envelope
+
