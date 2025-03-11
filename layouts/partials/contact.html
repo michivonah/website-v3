@@ -1,0 +1,10 @@
+<div id="contact" class="contact">
+    <div class="contact-title-wrapper">
+        <h1 class="contact-title">{{ T "contact-me" }}</h1>
+    </div>
+    <div>
+        {{ range .Site.Data.socialmedia }}
+        <a href="{{ .link }}" alt="{{ .name }}" title="{{ .name }}"><i class="{{ .icon }}"></i></a>
+        {{ end }}
+    </div>
+</div>

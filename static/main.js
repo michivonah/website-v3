@@ -47,3 +47,20 @@ function scrollTopVisibilityUpdate(){
     scrollTop.style.display = ((window.scrollY > 20) ? 'flex' : 'none');
     scrollTop.style.right = ((window.scrollY > 20) ? '0' : '-55px');
 }
+
+// intersection observer for animations
+// credits: https://coolcssanimation.com/how-to-trigger-a-css-animation-on-scroll/
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const actionObject = entry.target.querySelector('.contact-title');
+  
+      if (entry.isIntersecting) {
+        actionObject.classList.add('typewriter-animation');
+        return;
+      }
+  
+      actionObject.classList.remove('typewriter-animation');
+    });
+  });
+  
+  observer.observe(document.querySelector('.contact-title-wrapper'));
