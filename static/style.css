@@ -545,3 +545,80 @@ nav.small img{
 .scroll-top i{
     stroke-width: 3px;
 }
+
+/* FOOTER */
+.footer{
+    width: 100%;
+    height: auto;
+    padding: 10px 80px 10px 40px;
+    box-sizing: border-box;
+    background: var(--primary);
+    color: var(--color);
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: baseline;
+    background-image: url("assets/projects/sprinkle.svg");
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+.footer-part, .sm-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:490px){
+    .footer, .footer-part{
+        width: calc(100% + 20px);
+        flex-direction: column-reverse;
+    }
+
+    .sm-icons{
+        flex-direction: row;
+    }
+
+    .sm-icons i{
+        font-size: 1.4rem;
+    }
+}
+
+.footer a{
+    margin: 10px;
+    font-size: 1rem;
+    color: var(--color);
+    text-decoration: none;
+    transition: var(--baseTransition);
+}
+
+.footer a:hover{
+    color: var(--color);
+    text-decoration: none;
+}
+
+@media (pointer: fine){
+    .footer a:hover:has(i){
+        transform: scale(1.4);
+    }
+    
+    .footer a:hover:not(:has(i)){
+        transform: scale(1.1);
+    }
+}
+
+.footer select{
+    background: var(--color);
+    color: var(--primary);
+    margin: 10px 5px;
+    padding: 5px 16px;
+    border-radius: var(--baseRadius);
+    transition: var(--baseTransition);
+    border: 1px solid var(--primary);
+    outline: none;
+}

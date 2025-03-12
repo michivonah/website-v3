@@ -1,2 +1,23 @@
+<div class="footer">
+    <div class="footer-part">
+        <p>&#169; {{ dateFormat "2006" now }}</p>
+        <a href="#" alt='{{ T "legal" }}' title='{{ T "legal" }}'>{{ T "legal" }}</a>
+        <div class="sm-icons">
+            {{ range .Site.Data.socialmedia }}
+                {{ if .footer }}
+                    <a href="{{ .link }}" alt="{{ .name }}" title="{{ .name }}"><i class="{{ .icon }}"></i></a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    <div class="footer-part">
+        <select>
+            {{ range $.Site.Home.AllTranslations }}
+                <option>{{ .Language.LanguageName }}</option>
+            {{ end }}
+        </select>
+    </div>
+</div>
+
 </body>
 </html>
