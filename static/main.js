@@ -1,10 +1,12 @@
 // Add event listeners
 document.addEventListener('DOMContentLoaded', function(){
     scrollTopVisibilityUpdate();
+    updateNavStyle();
 });
 
 window.addEventListener('scroll', function(){
     scrollTopVisibilityUpdate();
+    updateNavStyle();
 });
 
 document.querySelector(".nav-toggle").addEventListener('click', function(){
@@ -41,11 +43,15 @@ function toggleNav(){
     switchClasses(".nav-toggle i", "ai-text-align-right", "ai-cross");
 }
 
-// scroll top visibility
+// class toggle on scroll
 function scrollTopVisibilityUpdate(){
     const scrollTop = document.querySelector(".scroll-top");
     scrollTop.style.display = ((window.scrollY > 20) ? 'flex' : 'none');
     scrollTop.style.right = ((window.scrollY > 20) ? '0' : '-55px');
+}
+
+function updateNavStyle(){
+    document.querySelector("nav").classList.toggle("small", window.scrollY > 20);
 }
 
 // intersection observer for animations

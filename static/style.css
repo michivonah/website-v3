@@ -47,6 +47,7 @@ nav{
 
 nav.small{
     height: 66px;
+    background: var(--primary);
 }
 
 nav .inner-width{
@@ -64,7 +65,7 @@ nav img{
 }
 
 nav.small img{
-    height: 46px;
+    height: 41px;
 }
 
 .nav-links a{
@@ -108,8 +109,18 @@ nav.small img{
     transition: var(--baseTransition);
 }
 
+nav.small .nav-links a:last-child{
+    background: var(--color);
+    color: var(--primary);
+}
+
 .nav-links a:last-child:hover{
     background: var(--secondary);
+}
+
+nav.small .nav-links a:last-child:hover{
+    background: var(--secondary);
+    color: var(--color);
 }
 
 .nav-toggle{
@@ -328,6 +339,7 @@ nav.small img{
     border-radius: var(--baseRadius);
     transition: var(--baseTransition);
     box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    overflow: hidden;
 }
 
 @media (pointer: fine){
@@ -339,6 +351,7 @@ nav.small img{
         background-position: center;
         box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
         cursor: pointer;
+        overflow: hidden;
     }
 
     .card-first{
