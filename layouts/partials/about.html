@@ -1,0 +1,13 @@
+<div id="about" class="about">
+    {{ with .Site.GetPage "about" }}
+    <div class="about-part">
+        {{ with .Params.image }}
+            <img src='{{ . | relURL }}' alt="" title="">
+        {{ end }}
+    </div>
+    <div class="about-part">
+        <h1>{{ .Title }}</h1>
+        <div>{{ .Content }}</div>
+    </div>
+    {{ end }}
+</div>
