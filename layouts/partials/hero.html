@@ -1,22 +1,22 @@
 <div class="hero">
     <h1>
         <span class="name-part">
-            <span>M</span>
-            <span>i</span>
-            <span>c</span>
-            <span>h</span>
-            <span>i</span>
-            <span> </span>
+            {{ with .Site.Home.Params.firstname }}
+                {{ range split . "" }}
+                    <span>{{ . }}</span>
+                {{ end }}
+            {{ end }}
         </span>
         <span class="name-part">
-            <span>v</span>
-            <span>o</span>
-            <span>n</span>
-            <span> </span>
-            <span>A</span>
-            <span>h</span>
+            {{ with .Site.Home.Params.lastname }}
+                {{ range split . "" }}
+                    <span>{{ . }}</span>
+                {{ end }}
+            {{ end }}
         </span>
     </h1>
-    <p>Informatiker, Tech-Enthusiast & Achterbahn-Fan</p>
+    {{ with .Site.Home.Params.slogan }}
+        <p>{{ . }}</p>
+    {{ end }}
     <a href="#about"><i class="ai-chevron-down"></i></a>
 </div>

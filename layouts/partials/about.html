@@ -2,7 +2,7 @@
     {{ with .Site.GetPage "about" }}
     <div class="about-part">
         {{ with .Params.image }}
-            <img src='{{ . | relURL }}' alt="" title="">
+            <img src='{{ . | relURL }}' alt="{{ $.Params.title }}" title="{{ $.Params.title }}">
         {{ end }}
     </div>
     <div class="about-part">
