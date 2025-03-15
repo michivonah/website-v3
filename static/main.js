@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     scrollTopVisibilityUpdate();
     updateNavStyle();
+    calculateAge(".age");
 });
 
 window.addEventListener('scroll', function(){
@@ -70,3 +71,21 @@ const observer = new IntersectionObserver(entries => {
   });
   
   observer.observe(document.querySelector('.contact-title-wrapper'));
+
+  // calculate age
+  function calculateAge(selector){
+    const obj = document.querySelector(selector);
+    const birthdate = obj.getAttribute("data-birthdate").split(",");
+    const birth = new Date(birthdate[2], birthdate[1] - 1, birthdate[0]);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    const dayDiff = today.getDate() - birth.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        age--;
+    }
+
+    obj.textContent = age;
+  }

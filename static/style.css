@@ -332,6 +332,10 @@ nav.small .nav-links a:last-child:hover{
     background: var(--primary);
 }
 
+.about var{
+    font-style: normal;
+}
+
 /* PROJECTS */
 .projects{
     text-align: center;
