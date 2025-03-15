@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="footer-part">
         <p>&#169; {{ dateFormat "2006" now }}</p>
-        <a href="#" alt='{{ T "legal" }}' title='{{ T "legal" }}'>{{ T "legal" }}</a>
+        <a href="{{ .Site.Params.legalLink }}" alt='{{ T "legal" }}' title='{{ T "legal" }}'>{{ T "legal" }}</a>
         <div class="sm-icons">
             {{ range .Site.Data.socialmedia }}
                 {{ if .footer }}
@@ -11,9 +11,9 @@
         </div>
     </div>
     <div class="footer-part">
-        <select>
+        <select class="language-selector" alt='{{ T "language" }}' title='{{ T "language" }}' name="language">
             {{ range $.Site.Home.AllTranslations }}
-                <option>{{ .Language.LanguageName }}</option>
+                <option value="{{ .Permalink }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>{{ .Language.LanguageName }}</option>
             {{ end }}
         </select>
     </div>

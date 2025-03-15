@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', function(){
     scrollTopVisibilityUpdate();
     updateNavStyle();
     calculateAge(".age");
+
+    // add eventlistener to language selector
+    const languageSelector = document.querySelector(".language-selector");
+    languageSelector.addEventListener('change', function(){
+        window.location.href = languageSelector.value + window.location.hash;
+    });
 });
 
 window.addEventListener('scroll', function(){
@@ -68,12 +74,12 @@ const observer = new IntersectionObserver(entries => {
   
       actionObject.classList.remove('typewriter-animation');
     });
-  });
+});
   
-  observer.observe(document.querySelector('.contact-title-wrapper'));
+observer.observe(document.querySelector('.contact-title-wrapper'));
 
-  // calculate age
-  function calculateAge(selector){
+// calculate age
+function calculateAge(selector){
     const obj = document.querySelector(selector);
     const birthdate = obj.getAttribute("data-birthdate").split(",");
     const birth = new Date(birthdate[2], birthdate[1] - 1, birthdate[0]);
@@ -88,4 +94,4 @@ const observer = new IntersectionObserver(entries => {
     }
 
     obj.textContent = age;
-  }
+}
