@@ -1,5 +1,5 @@
 // Add event listeners
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', async function(){
     scrollTopVisibilityUpdate();
     updateNavStyle();
     calculateAge(".age");
@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function(){
     languageSelector.addEventListener('change', function(){
         window.location.href = languageSelector.value + window.location.hash;
     });
+
+    // load projects
+    loadMoreContent('.project-list', 6);
 });
 
 window.addEventListener('scroll', function(){
@@ -24,6 +27,10 @@ document.querySelectorAll(".nav-links a").forEach(element => {
     element.addEventListener('click', function(){
         toggleNav();
     });
+});
+
+document.querySelector(".project-load-btn").addEventListener('click', function(){
+    loadMoreContent('.project-list', 3);
 });
 
 // Generic functions
@@ -94,4 +101,95 @@ function calculateAge(selector){
     }
 
     obj.textContent = age;
+}
+
+// load projects from api
+// content api: https://api.michivonah.ch/?limit=8&page=1
+async function loadContent(endpoint = "https://api.michivonah.ch", limit = 6, page = 1){
+    try{
+        constRequestUrl = `${endpoint}/?limit=${limit}&page=${page}`;
+        const response = await fetch(constRequestUrl);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    }
+    catch(error){
+        return console.error({"message":error});
+    }
+}
+
+// add projects to page
+async function showProjects(wrapperSelector, data){
+    const wrapper =  document.querySelector(wrapperSelector);
+
+    for (const project of data){
+        wrapper.append(await getProjectCard(project));
+    }
+}
+
+// create project card
+async function getProjectCard(data){
+    const title = data.title;
+    const url = data.url;
+    const image = data.image;
+    const date = data.date;
+    const icon = data.icon;
+    const category = data.category;
+
+    const dateFormatted = new Date(date).toLocaleDateString("de-DE", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
+
+    const container = document.createElement("div");
+    container.classList = "project-card";
+    container.classList.add(category);
+    //container.style.backgroundImage = `url(${image})`;
+
+    const cardFirst = document.createElement("div");
+    cardFirst.classList = "card-first";
+    const emptyText = document.createElement("p");
+    cardFirst.appendChild(emptyText);
+    const cardImage = document.createElement("img");
+    cardImage.src = image;
+    cardFirst.appendChild(cardImage);
+
+    const cardSecond = document.createElement("div");
+    cardSecond.classList = "card-second";
+    const cardIcon = document.createElement("i");
+    cardIcon.classList = icon;
+    const cardTitle = document.createElement("h2");
+    cardTitle.textContent = title;
+    const cardDate = document.createElement("p");
+    cardDate.textContent = dateFormatted;
+    cardSecond.appendChild(cardIcon);
+    cardSecond.appendChild(cardTitle);
+    cardSecond.appendChild(cardDate);
+
+    container.appendChild(cardFirst);
+    container.appendChild(cardSecond);
+
+    return container;
+}
+
+async function loadMoreContent(wrapperSelector, amount, endpoint = "https://api.michivonah.ch", btnSelector = ".project-load-btn"){
+    const wrapper =  document.querySelector(wrapperSelector);
+    const page = ((wrapper.childElementCount <= 0) ? 1 : (wrapper.childElementCount / amount) + 1);
+
+    // just for debugging purposes
+    //console.log(`children: ${wrapper.childElementCount} limit: ${amount} page: ${page}`);
+
+    // error validation -> only load more content when page num is valid
+    if (page % 1 == 0){
+        await showProjects('.project-list', await loadContent(endpoint, amount, page));
+    }
+    else{
+        // hide button if no more content is available
+        //if (event.target.tagName == "BUTTON") event.target.style.display = "none";
+        document.querySelector(btnSelector).style.opacity = 0;
+    }
+    
 }
