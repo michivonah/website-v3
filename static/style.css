@@ -434,9 +434,16 @@ nav.small .nav-links a:last-child:focus{
     background-position: center;
     border-radius: var(--baseRadius);
     transition: var(--baseTransition);
-    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    box-shadow: var(--boxShadow);
     overflow: hidden;
     position: relative;
+
+    --boxShadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    --backgroundImage: url("assets/projects/sprinkle.svg");
+    --fontSizeH2: 1.2rem;
+    --fontSizeIcon: 2.5rem;
+    --fontSizeP: 1.1rem;
+    --fontWeightP: 600;
 }
 
 .card-first img{
@@ -451,11 +458,11 @@ nav.small .nav-links a:last-child:focus{
 @media (pointer: fine){
     .project-card:hover{
         background: var(--primary);
-        background-image: url("assets/projects/sprinkle.svg");
+        background-image: var(--backgroundImage);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+        box-shadow: var(--boxShadow);
         cursor: pointer;
         overflow: hidden;
     }
@@ -497,27 +504,27 @@ nav.small .nav-links a:last-child:focus{
     }
     
     .project-card:hover .card-second h2{
-        font-size: 1.2rem;
+        font-size: var(--fontSizeH2);
     }
     
     .project-card:hover .card-second p{
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: var(--fontSizeP);;
+        font-weight: var(--fontWeightP);
     }
     
     .project-card:hover .card-second i{
-        font-size: 2.5rem;
+        font-size: var(--fontSizeIcon);;
     }
 }
 
 @media (pointer: coarse) or (pointer: none){
     .project-card{
         background: var(--primary);
-        background-image: url("assets/projects/sprinkle.svg");
+        background-image: var(--backgroundImage);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+        box-shadow: var(--boxShadow);
     }
 
     .card-first img{
@@ -541,16 +548,16 @@ nav.small .nav-links a:last-child:focus{
     }
 
     .project-card .card-second h2{
-        font-size: 1.2rem;
+        font-size: var(--fontSizeH2);
     }
     
     .project-card .card-second p{
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: var(--fontSizeP);
+        font-weight: var(--fontWeightP);
     }
     
     .project-card .card-second i{
-        font-size: 2.5rem;
+        font-size: var(--fontSizeIcon);
     }
 }
 
