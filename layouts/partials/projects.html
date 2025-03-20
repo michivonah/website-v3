@@ -1,6 +1,6 @@
 <div id="projects" class="projects">
-    <h1>{{ T "projects" }}</h1>
-    <div class="tag-filter">
+    <h1 class="fade-up">{{ T "projects" }}</h1>
+    <div class="tag-filter fade-up">
         {{ range .Site.Data.tags }}
         <div class="tag">
             <input class="tag-checkbox" id="tag-{{ .slug }}" value="{{ .slug }}" type="checkbox" {{ if .checked }} checked {{ end }}>
@@ -11,7 +11,7 @@
 
     <div class="project-list">
     </div>
-    <div>
+    <div class="fade-up">
         <button class="project-load-btn" alt='{{ T "load-more" }}' title='{{ T "load-more" }}' name='{{ T "load-more" }}'>{{ T "load-more" }}</button>
     </div>
 </div>

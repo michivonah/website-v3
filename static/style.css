@@ -22,6 +22,9 @@ body{
     --baseTransition: all var(--baseDuration);
     --baseDuration: 250ms;
     --navSmallHeight: 66px;
+    --animationOffset: 100px;
+    --animationScale: 0.75;
+    --animationCoverValue: 40%;
 }
 
 /* CONTENT */
@@ -434,17 +437,6 @@ nav.small .nav-links a:last-child:focus{
     box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
     overflow: hidden;
     position: relative;
-    animation: fadeIn 400ms linear;
-}
-
-@keyframes fadeIn{
-    0%{
-        opacity: 0;
-    }
-
-    100%{
-        opacity: 1;
-    }
 }
 
 .card-first img{
@@ -755,4 +747,92 @@ nav.small .nav-links a:last-child:focus{
     transition: var(--baseTransition);
     border: 1px solid var(--primary);
     outline: none;
+}
+
+/* GENERAL ANIMATIONS */
+/* only css on scroll animations: https://www.youtube.com/watch?v=0TnO1GzKWPc */
+@media (prefers-reduced-motion: no-preference){
+    .fade-up{
+        animation: fade-up linear;
+        animation-timeline: view();
+        animation-composition: add;
+        animation-range: entry 0 cover var(--animationCoverValue);
+    }
+    
+    .fade-down{
+        animation: fade-down var(--baseDuration) linear;
+        animation-timeline: view();
+        animation-composition: add;
+        animation-range: entry 0 cover var(--animationCoverValue);
+    }
+    
+    .fade-left{
+        animation: fade-left var(--baseDuration) linear;
+        animation-timeline: view();
+        animation-composition: add;
+        animation-range: entry 0 cover var(--animationCoverValue);
+    }
+    
+    .fade-right{
+        animation: fade-right var(--baseDuration) linear;
+        animation-timeline: view();
+        animation-composition: add;
+        animation-range: entry 0 cover var(--animationCoverValue);
+    }
+}
+
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+        translate: 0px var(--animationOffset);
+        scale: var(--animationScale);
+    }
+
+    100%{
+        opacity: 1;
+        translate: 0px 0px;
+        scale: 1;
+    }
+}
+
+@keyframes fade-down{
+    0%{
+        opacity: 0;
+        translate: 0px calc(var(--animationOffset) * -1);
+        scale: var(--animationScale);
+    }
+
+    100%{
+        opacity: 1;
+        translate: 0px 0px;
+        scale: 1;
+    }
+}
+
+@keyframes fade-left{
+    0%{
+        opacity: 0;
+        translate: calc(var(--animationOffset) * -1) 0px;
+        scale: var(--animationScale);
+    }
+
+    100%{
+        opacity: 1;
+        translate: 0px 0px;
+        scale: 1;
+    }
+}
+
+@keyframes fade-right{
+    0%{
+        opacity: 0;
+        translate: var(--animationOffset) 0px;
+        scale: var(--animationScale);
+    }
+
+    100%{
+        opacity: 1;
+        translate: 0px 0px;
+        scale: 1;
+    }
 }

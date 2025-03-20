@@ -70,20 +70,27 @@ function updateNavStyle(){
 
 // intersection observer for animations
 // credits: https://coolcssanimation.com/how-to-trigger-a-css-animation-on-scroll/
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const actionObject = entry.target.querySelector('.contact-title');
-  
-      if (entry.isIntersecting) {
-        actionObject.classList.add('typewriter-animation');
-        return;
-      }
-  
-      actionObject.classList.remove('typewriter-animation');
-    });
-});
-  
-observer.observe(document.querySelector('.contact-title-wrapper'));
+function animationOnScroll(triggerSelector, animationClass, targetElement){
+    const trigger = document.querySelector(triggerSelector);
+    const target = ((targetElement) ? document.querySelector(targetElement) : trigger);
+
+    if(trigger){
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {     
+              if (entry.isIntersecting) {
+                target.classList.add(animationClass);
+              }
+              else{
+                target.classList.remove(animationClass);
+              }
+            });
+        }, { rootMargin: '0px 0px 5% 0px', threshold: 0.1 });
+          
+        return observer.observe(trigger);
+    }
+}
+
+animationOnScroll('.contact-title-wrapper', 'typewriter-animation', '.contact-title');
 
 // calculate age
 function calculateAge(selector){
@@ -145,8 +152,9 @@ async function getProjectCard(data){
     });
 
     const container = document.createElement("div");
-    container.classList = "project-card";
+    container.classList = "project-card fade-up";
     container.classList.add(category);
+    //container.style.animation = "fade-up var(--baseDuration) linear";
     //container.style.backgroundImage = `url(${image})`;
 
     const cardFirst = document.createElement("div");
