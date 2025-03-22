@@ -117,11 +117,13 @@ document.querySelectorAll(".tag-checkbox").forEach(element => {
     });
 });
 
-function showSelectedProjects(category, show = true){
+function showSelectedProjects(category, show = true, noProjectSelector = '.no-projects'){
     if(category){
         document.querySelectorAll(`.${category}`).forEach(project => {
             project.classList.toggle("hidden", !show);
         });
+        // show message when no project is available
+        document.querySelector(noProjectSelector).classList.toggle('hidden', document.querySelector('.project-card:not(.hidden)'));
     }
     else{
         console.error("func showSelectedProjects(): Missing category name.");
@@ -183,7 +185,6 @@ async function getProjectCard(data){
     container.classList.add(category);
     if(!isCategoryEnabled(category)) container.classList.add("hidden");
     //container.style.animation = "fade-up var(--baseDuration) linear";
-    //container.style.backgroundImage = `url(${image})`;
 
     const cardFirst = document.createElement("div");
     cardFirst.classList = "card-first";

@@ -397,7 +397,8 @@ nav.small .nav-links a:last-child:focus{
     color: var(--color);
 }
 
-.tag:hover{
+.tag:hover,
+.tag:focus{
     padding: 5px 26px;
     background: var(--secondary);
     color: var(--color);
@@ -429,7 +430,8 @@ nav.small .nav-links a:last-child:focus{
     opacity: 0;
 }
 
-.project-load-btn:hover{
+.project-load-btn:hover,
+.project-load-btn:focus{
     padding: 10px 40px;
     background: var(--secondary);
     border: var(--border);
@@ -439,16 +441,17 @@ nav.small .nav-links a:last-child:focus{
 .no-projects{
     font-size: 1.8rem;
     font-weight: 600;
-    display: none;
+    transition: var(--baseTransition);
+}
+
+.no-projects.hidden{
+    opacity: 0;
+    scale: 0;
+    height: 0;
 }
 
 .no-projects i{
     font-size: 3rem;
-}
-
-/* show no projects message, when no project exists that isn't hidden and loader is hidden */
-.project-list:not(:has(.project-card:not(.hidden))) + .no-projects:not(:has(+ .project-loader-wrapper:not(.hidden))){
-    display: block;
 }
 
 /* hide load more btn when no projects are shown */
@@ -489,7 +492,8 @@ nav.small .nav-links a:last-child:focus{
 }
 
 .project-card.hidden{
-    display: none;
+    animation: fade-out var(--baseDuration) ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .card-first img{
@@ -502,7 +506,8 @@ nav.small .nav-links a:last-child:focus{
 }
 
 @media (pointer: fine){
-    .project-card:hover{
+    .project-card:hover,
+    .project-card:focus{
         background: var(--primary);
         background-image: var(--backgroundImage);
         background-size: cover;
@@ -524,7 +529,8 @@ nav.small .nav-links a:last-child:focus{
         opacity: 1;
     }
 
-    .project-card:hover .card-first{
+    .project-card:hover .card-first,
+    .project-card:focus .card-first{
         height: 0;
         opacity: 0;
     }
@@ -542,23 +548,27 @@ nav.small .nav-links a:last-child:focus{
         transform: rotate(90deg) scale(-1);
     }
     
-    .project-card:hover .card-second{
+    .project-card:hover .card-second,
+    .project-card:focus .card-second{
         height: 100%;
         opacity: 1;
         font-size: 1rem;
         transform: rotate(0deg);
     }
     
-    .project-card:hover .card-second h2{
+    .project-card:hover .card-second h2,
+    .project-card:focus .card-second h2{
         font-size: var(--fontSizeH2);
     }
     
-    .project-card:hover .card-second p{
+    .project-card:hover .card-second p,
+    .project-card:focus .card-second p{
         font-size: var(--fontSizeP);;
         font-weight: var(--fontWeightP);
     }
     
-    .project-card:hover .card-second i{
+    .project-card:hover .card-second i,
+    .project-card:focus .card-second i{
         font-size: var(--fontSizeIcon);;
     }
 }
@@ -621,6 +631,7 @@ nav.small .nav-links a:last-child:focus{
     --size: 2.5rem;
     --factor: 2.5;
     --duration: 2s;
+    --background: var(--primary);
 }
 
 .project-loader-wrapper.hidden{
@@ -632,14 +643,21 @@ nav.small .nav-links a:last-child:focus{
     height: var(--size);
     position: relative;
     animation: circleLoader var(--duration) linear infinite;
+    transition: var(--baseTransition);
+}
+
+.project-loader:hover{
+    --size: 3rem;
+    --background: var(--secondary);
 }
 
 .project-loader-circle{
     width: calc(var(--size) / var(--factor));
     height: calc(var(--size) / var(--factor));
-    background: var(--primary);
+    background: var(--background);
     border-radius: 50%;
     position: absolute;
+    transition: var(--baseTransition);
 }
 
 .project-loader-circle:nth-child(1){
@@ -898,7 +916,7 @@ nav.small .nav-links a:last-child:focus{
         animation-range: entry 0 cover var(--animationCoverValue);
         overflow: hidden;
     }
-    
+
     .fade-down{
         animation: fade-down var(--baseDuration) linear;
         animation-timeline: view();
@@ -977,5 +995,29 @@ nav.small .nav-links a:last-child:focus{
         opacity: 1;
         translate: 0px 0px;
         scale: 1;
+    }
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        scale: 0;
+    }
+
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes fade-out{
+    0%{
+        opacity: 1;
+        scale: 1;
+    }
+
+    100%{
+        opacity: 0;
+        scale: 0;
     }
 }

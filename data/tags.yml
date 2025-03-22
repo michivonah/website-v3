@@ -11,9 +11,4 @@
 - title: GitHub
   slug: github
   icon: ai-github-fill
-  checked: False
-
-- title: Sonstiges
-  slug: other
-  icon: ai-paper
   checked: True
