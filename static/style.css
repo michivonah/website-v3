@@ -48,6 +48,46 @@ body{
     max-width: clamp(1100px, 90%, 1250px);
 }
 
+/* LOADER */
+/* animation credits: https://uiverse.io/shadowmurphy/yellow-lizard-30 */
+.loadingscreen{
+    width: 100%;
+    height: 100dvh;
+    background: var(--primary);
+    z-index: 1002;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    transition: var(--baseTransition);
+}
+
+.loadingscreen.hidden{
+    display: none;
+}
+
+.loader-logo{
+    width: 45%;
+    max-width: 200px;
+    fill: transparent;
+    stroke: var(--color);
+    stroke-linecap: round;
+    stroke-width: 2.4rem;
+    stroke-dashoffset: var(--dashoffset);
+    stroke-dasharray: 0 var(--dashoffset);
+    animation: loader 3.5s linear infinite;
+
+    --dashoffset: 1384;
+}
+
+@keyframes loader {
+    90%, 100%{
+        stroke-dashoffset: 0;
+        stroke-dasharray: var(--dashoffset) 0;
+    }
+}
+
 /* NAVIGATION */
 nav{
     width: 100%;
@@ -1030,6 +1070,24 @@ nav.small .nav-links a:last-child:focus{
         animation-range: entry 0 cover var(--animationCoverValue);
         overflow: hidden;
     }
+
+    .fade-in{
+        animation: fade-in var(--baseDuration) linear;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+    }
+
+    .fade-out{
+        animation: fade-out var(--baseDuration) linear;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+    }
+
+    .fade-out-no-scale{
+        animation: fade-out-no-scale var(--baseDuration) linear;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+    }
 }
 
 @keyframes fade-up{
@@ -1109,5 +1167,15 @@ nav.small .nav-links a:last-child:focus{
     100%{
         opacity: 0;
         scale: 0;
+    }
+}
+
+@keyframes fade-out-no-scale{
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
     }
 }
