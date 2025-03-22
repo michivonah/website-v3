@@ -2,7 +2,10 @@
 @import url('/fonts/source-sans-3.css');
 
 /* GENERAL */
-html{scroll-behavior: smooth;}
+:root{
+    scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
+}
 
 body{
     /* STYLING */
@@ -19,6 +22,7 @@ body{
     --color: #f8f8f8;
     --font: "Source Sans 3", sans-serif;
     --border: 2px solid var(--color);
+    --borderPrimary: 2px solid var(--primary);
     --baseRadius: 12px;
     --baseTransition: all var(--baseDuration);
     --baseDuration: 250ms;
@@ -26,6 +30,11 @@ body{
     --animationOffset: 100px;
     --animationScale: 0.75;
     --animationCoverValue: 40%;
+}
+
+::selection{
+    background: var(--primary);
+    color: var(--color);
 }
 
 /* CONTENT */
@@ -705,6 +714,87 @@ nav.small .nav-links a:last-child:focus{
         scale: 1;
         rotate: 360deg;
     }
+}
+
+/* FAQ */
+.faq{
+    padding-block: 40px;
+    text-align: center;
+    scroll-margin-top: calc(var(--navSmallHeight) + 20px);
+}
+
+.faq-container{
+    padding-inline: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+}
+
+.faq details{
+    margin: 14px 0;
+    padding: 10px 20px;
+    background: var(--primary);
+    border: var(--borderPrimary);
+    border-radius: var(--baseRadius);
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.faq details:hover,
+.faq details:focus-within{
+    background: var(--secondary);
+    border: var(--border);
+    outline: none;
+}
+
+.faq details::selection{
+    background: var(--color);
+    color: var(--secondary);
+}
+
+/* animation credits: https://www.youtube.com/watch?v=Vzj3jSUbMtI */
+.faq details::details-content{
+    block-size: 0;
+    transition:
+        block-size var(--baseDuration) linear,
+        content-visibility var(--baseDuration) linear;
+    transition-behavior: allow-discrete;
+}
+
+.faq details[open]::details-content{
+    block-size: auto;
+}
+
+.faq summary{
+    position: relative;
+    padding-inline: 2.4rem;;
+    font-size: 1.2rem;
+    font-weight: 600;
+    list-style-position: outside;
+}
+
+.faq summary:focus{
+    outline: none;
+}
+
+.faq summary::marker{
+    content: none;
+}
+
+.faq summary::before{
+    content: "\f156";
+    font-family: akar-icons;
+    position: absolute;
+    inset-inline-start: 0.3rem;
+    inset-block-start: 0.25rem;
+    transition: var(--baseTransition);
+}
+
+.faq details[open] summary::before{
+    rotate: -180deg;
 }
 
 /* CONTACT */

@@ -1,0 +1,14 @@
+<div id="faq" class="faq">
+    <h1 class="fade-up">{{ T "faq" }}</h1>
+    <div class="faq-container">
+        {{ $faqs := where .Site.RegularPages "Section" "faq" }}
+        {{ range $faqs }}
+        <details id="faq-{{ .Params.slug }}" class="fade-up" name="faq">
+            <summary>{{ .Title }}</summary>
+            <div class="faq-answer">
+                {{ .Content | safeHTML }}
+            </div>
+        </details>
+        {{ end }}
+    </div>
+</div>
