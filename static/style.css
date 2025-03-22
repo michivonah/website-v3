@@ -385,6 +385,7 @@ nav.small .nav-links a:last-child:focus{
     border-radius: var(--baseRadius);
     transition: var(--baseTransition);
     border: 2px solid var(--primary);
+    cursor: pointer;
 }
 
 .tag input{
@@ -424,12 +425,37 @@ nav.small .nav-links a:last-child:focus{
     opacity: 1;
 }
 
+.project-load-btn.hidden{
+    opacity: 0;
+}
+
 .project-load-btn:hover{
     padding: 10px 40px;
     background: var(--secondary);
     border: var(--border);
     cursor: pointer;
 }
+
+.no-projects{
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: none;
+}
+
+.no-projects i{
+    font-size: 3rem;
+}
+
+/* show no projects message, when no project exists that isn't hidden and loader is hidden */
+.project-list:not(:has(.project-card:not(.hidden))) + .no-projects:not(:has(+ .project-loader-wrapper:not(.hidden))){
+    display: block;
+}
+
+/* hide load more btn when no projects are shown */
+.project-list:not(:has(.project-card:not(.hidden))) ~ .project-load .project-load-btn{
+    display: none;
+}
+
 
 /* Card animation: https://uiverse.io/suleymanlaarabidev/perfect-husky-88 */
 .project-card{
@@ -454,6 +480,16 @@ nav.small .nav-links a:last-child:focus{
     --fontSizeIcon: 2.5rem;
     --fontSizeP: 1.1rem;
     --fontWeightP: 600;
+}
+
+.project-card a{
+    color: inherit;
+    text-decoration: none;
+    font-style: inherit;
+}
+
+.project-card.hidden{
+    display: none;
 }
 
 .card-first img{
@@ -568,6 +604,88 @@ nav.small .nav-links a:last-child:focus{
     
     .project-card .card-second i{
         font-size: var(--fontSizeIcon);
+    }
+}
+
+/* PROJECTS LOADER */
+/* credits: https://uiverse.io/AbanoubMagdy1/evil-bullfrog-30 */
+.project-loader-wrapper{
+    width: 100%;
+    height: calc(var(--size) * 2);
+    margin: 0 0 var(--size) 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    --size: 2.5rem;
+    --factor: 2.5;
+    --duration: 2s;
+}
+
+.project-loader-wrapper.hidden{
+    display: none;
+}
+
+.project-loader{
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    animation: circleLoader var(--duration) linear infinite;
+}
+
+.project-loader-circle{
+    width: calc(var(--size) / var(--factor));
+    height: calc(var(--size) / var(--factor));
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.project-loader-circle:nth-child(1){
+    top: 0;
+    left: 0;
+}
+
+.project-loader-circle:nth-child(2){
+    top: 0;
+    right: 0;
+}
+
+.project-loader-circle:nth-child(3){
+    bottom: 0;
+    left: 0;
+}
+
+.project-loader-circle:nth-child(4){
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes circleLoader{
+    0%{
+        scale: 1;
+        rotate: 0deg;
+    }
+
+    20%, 25%{
+        scale: 1.3;
+        rotate: 90deg;
+    }
+
+    45%, 50%{
+        scale: 1;
+        rotate: 180deg;
+    }
+
+    70%, 75%{
+        scale: 1.3;
+        rotate: 270deg;
+    }
+
+    95%, 100%{
+        scale: 1;
+        rotate: 360deg;
     }
 }
 

@@ -110,6 +110,28 @@ function calculateAge(selector){
     obj.textContent = age;
 }
 
+// tag filtering
+document.querySelectorAll(".tag-checkbox").forEach(element => {
+    element.addEventListener("change", function(){
+        showSelectedProjects(element.value, element.checked);
+    });
+});
+
+function showSelectedProjects(category, show = true){
+    if(category){
+        document.querySelectorAll(`.${category}`).forEach(project => {
+            project.classList.toggle("hidden", !show);
+        });
+    }
+    else{
+        console.error("func showSelectedProjects(): Missing category name.");
+    }
+}
+
+function isCategoryEnabled(category){
+    return document.querySelector(`#tag-${category}`).checked;
+}
+
 // load projects from api
 // content api: https://api.michivonah.ch/?limit=8&page=1
 async function loadContent(endpoint = "https://api.michivonah.ch", limit = 6, page = 1){
@@ -151,18 +173,24 @@ async function getProjectCard(data){
         year: "numeric"
     });
 
+    const link = document.createElement("a");
+    link.href = url;
+    link.title = title;
+    link.alt = title;
+
     const container = document.createElement("div");
     container.classList = "project-card fade-up";
     container.classList.add(category);
+    if(!isCategoryEnabled(category)) container.classList.add("hidden");
     //container.style.animation = "fade-up var(--baseDuration) linear";
     //container.style.backgroundImage = `url(${image})`;
 
     const cardFirst = document.createElement("div");
     cardFirst.classList = "card-first";
-    const emptyText = document.createElement("p");
-    cardFirst.appendChild(emptyText);
     const cardImage = document.createElement("img");
     cardImage.src = image;
+    cardImage.alt = title;
+    cardImage.title = title;
     cardFirst.appendChild(cardImage);
 
     const cardSecond = document.createElement("div");
@@ -177,8 +205,9 @@ async function getProjectCard(data){
     cardSecond.appendChild(cardTitle);
     cardSecond.appendChild(cardDate);
 
-    container.appendChild(cardFirst);
-    container.appendChild(cardSecond);
+    link.appendChild(cardFirst);
+    link.appendChild(cardSecond);
+    container.appendChild(link);
 
     return container;
 }
@@ -186,18 +215,20 @@ async function getProjectCard(data){
 async function loadMoreContent(wrapperSelector, amount, endpoint = "https://api.michivonah.ch", btnSelector = ".project-load-btn"){
     const wrapper =  document.querySelector(wrapperSelector);
     const page = ((wrapper.childElementCount <= 0) ? 1 : (wrapper.childElementCount / amount) + 1);
+    const loader = document.querySelector('.project-loader-wrapper');
 
     // just for debugging purposes
     //console.log(`children: ${wrapper.childElementCount} limit: ${amount} page: ${page}`);
 
     // error validation -> only load more content when page num is valid
     if (page % 1 == 0){
+        loader.classList.remove('hidden');
         await showProjects('.project-list', await loadContent(endpoint, amount, page));
+        loader.classList.add('hidden');
     }
     else{
         // hide button if no more content is available
-        //if (event.target.tagName == "BUTTON") event.target.style.display = "none";
-        document.querySelector(btnSelector).style.opacity = 0;
+        document.querySelector(btnSelector).classList.add('hidden');
     }
     
 }

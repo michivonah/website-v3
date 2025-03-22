@@ -2,16 +2,31 @@
     <h1 class="fade-up">{{ T "projects" }}</h1>
     <div class="tag-filter fade-up">
         {{ range .Site.Data.tags }}
-        <div class="tag">
+        <label class="tag" for="tag-{{ .slug }}" >
             <input class="tag-checkbox" id="tag-{{ .slug }}" value="{{ .slug }}" type="checkbox" {{ if .checked }} checked {{ end }}>
-            <label class="tag-label" for="tag-{{ .slug }}" >{{ .title }}</label>
-        </div>
+            <span class="tag-label">{{ .title }}</span>
+        </label>
         {{ end }}
     </div>
 
     <div class="project-list">
     </div>
-    <div class="fade-up">
+
+    <div class="no-projects">
+        <i class="ai-face-sad"></i>
+        <p>No projects found</p>
+    </div>
+
+    <div class="project-loader-wrapper hidden">
+        <div class="project-loader">
+            <div class="project-loader-circle"></div>
+            <div class="project-loader-circle"></div>
+            <div class="project-loader-circle"></div>
+            <div class="project-loader-circle"></div>
+        </div>
+    </div>
+
+    <div class="project-load fade-up">
         <button class="project-load-btn" alt='{{ T "load-more" }}' title='{{ T "load-more" }}' name='{{ T "load-more" }}'>{{ T "load-more" }}</button>
     </div>
 </div>
