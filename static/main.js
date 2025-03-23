@@ -1,26 +1,23 @@
 // Add event listeners
 document.addEventListener('DOMContentLoaded', async function(){
+    scrollTopVisibilityUpdate();
+    updateNavStyle();
+    calculateAge(".age");
+
+    // add eventlistener to language selector
+    const languageSelector = document.querySelector(".language-selector");
+    languageSelector.addEventListener('change', function(){
+        window.location.href = languageSelector.value + window.location.hash;
+    });
+
+    // load projects
+    loadMoreContent('.project-list', 6);
+
+    // hide loader
+    const loader = document.querySelector('.loadingscreen');
+    loader.classList.add('fade-out-no-scale');
     setTimeout(() => {
-        scrollTopVisibilityUpdate();
-        updateNavStyle();
-        calculateAge(".age");
-    
-        // add eventlistener to language selector
-        const languageSelector = document.querySelector(".language-selector");
-        languageSelector.addEventListener('change', function(){
-            window.location.href = languageSelector.value + window.location.hash;
-        });
-    
-        // load projects
-        loadMoreContent('.project-list', 6);
-    
-        // hide loader
-        const loader = document.querySelector('.loadingscreen');
-        loader.classList.add('fade-out-no-scale');
-        //loader.classList.add('hidden');
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 250);
+        loader.classList.add('hidden');
     }, 250);
 });
 

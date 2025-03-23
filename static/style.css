@@ -117,6 +117,8 @@ nav .inner-width{
 nav img{
     width: auto;
     height: 56px;
+    margin-block: 20px;
+    box-sizing: border-box;
 }
 
 nav.small img{
@@ -266,7 +268,7 @@ nav.small .nav-links a:last-child:focus{
 }
 
 .hero h1{
-    margin: 0 20px;
+    margin: 30px 20px 0;
     font-size: 6rem;
     transition: var(--baseTransition);
     letter-spacing: -0.6rem;
@@ -824,6 +826,10 @@ nav.small .nav-links a:last-child:focus{
     content: none;
 }
 
+.faq summary::-webkit-details-marker{
+    display: none;
+}
+
 .faq summary::before{
     content: "\f156";
     font-family: akar-icons;
@@ -1167,6 +1173,7 @@ nav.small .nav-links a:last-child:focus{
     100%{
         opacity: 0;
         scale: 0;
+        display: none;
     }
 }
 

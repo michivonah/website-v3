@@ -17,20 +17,20 @@
     <link rel="stylesheet" type="text/css" href='{{ "/style.css" | absURL }}' media="screen"/>
     <meta charset="UTF-8">
     <meta name="description" content="{{ .Site.Params.description }}">
-    <meta name="keywords" content="{{ .Site.Params.tags }}">
+    <meta name="keywords" content='{{ delimit site.Params.keywords ", " }}'>
     <meta name="author" content="{{ .Site.Params.author }}">
     <meta name="robots" content="index">
     <meta http-equiv="expires" content="43200">
 
     <meta property="og:title" content="{{ .Site.Params.author }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
-    <meta property="og:image" content="{{ .Site.Params.faviconPath | relURL }}">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image" content="{{ .Site.Params.metadataCard | relURL }}">
+    <meta property="og:image:type" content="image/jpg">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:site_name" content="{{ .Site.Params.author }}">
     <meta property="twitter:title" content="{{ .Site.Params.author }}">
     <meta property="twitter:description" content="{{ .Site.Params.description }}">
-    <meta property="twitter:image" content="{{ .Site.Params.faviconPath | relURL }}">
+    <meta property="twitter:image" content="{{ .Site.Params.metadataCard | relURL }}">
     <meta name="twitter:image:alt" content="{{ .Site.Params.author }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ .Site.Params.twitterUsername }}">

@@ -1,7 +1,7 @@
 ---
 title: "Über mich"
 slug: "about"
-image: "/assets/about-me/about-me.jpg"
+image: "/assets/about-me/about-me.webp"
 ---
 
 Hallo! Ich heisse Michi und interessiere mich für Smartphones, Computer, Elektromobilität (hauptsächlich Tesla) und weitere spannende Technik.

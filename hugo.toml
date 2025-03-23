@@ -1,5 +1,4 @@
 baseURL = 'https://michivonah.ch'
-title = 'Michi von Ah - Informatiker, Tech-Enthusiast & Achterbahn-Fan'
 
 defaultContentLanguage = 'de'
 [languages]
@@ -8,15 +7,87 @@ defaultContentLanguage = 'de'
     languageName = 'Deutsch'
     languageCode = 'de-CH'
     weight = 10
+
+    title = 'Michi von Ah - Informatiker, Tech-Enthusiast & Achterbahn-Fan'
+    description = "Hallo! Ich heisse Michi und interessiere mich für Smartphones, Computer, Elektromobilität (hauptsächlich Tesla) und weitere spannende Technik."
+    metadataCard = "assets/metadata/website-banner-de.jpg"
+    keywords = [
+      "Michi",
+      "Michi von Ah",
+      "Michael von Ah",
+      "von Ah",
+      "von Ah Michi",
+      "von Ah Michael",
+      "mva",
+      "mivo",
+      "vom",
+      "Michi v.A.",
+      "Michi vA.",
+      "Persönliche Website",
+      "Persönliche Webseite",
+      "Eigene Website",
+      "Eigene Webseite",
+      "Meine Webseite",
+      "Meine Website",
+      "Über mich",
+      "Website",
+      "Webseite",
+      "Portfolio",
+      "Informatiker",
+      "Plattformentwicklung",
+      "Plattformentwickler",
+      "IT",
+      "technikinteressiert",
+      "Tech-Enthusiast",
+      "Achterbahn-Fan",
+      "Webentwicklung",
+      "System Engineer",
+      "Lifestyle",
+      "Technologie",
+      "3K"
+      ]
+
   [languages.en]
     contentDir = 'content/en'
     languageName = 'English'
     languageCode = 'en-CH'
     weight = 20
 
+    title = 'Michi von Ah - IT guy, tech enthusiast & rollercoaster fan'
+    description = "Hi! My name is Michi and I’m interested in smartphones, computers, e-mobility (mainly Tesla) and other exciting technology."
+    metadataCard = "assets/metadata/website-banner-en.jpg"
+    keywords = [
+      "Michi",
+      "Michi von Ah",
+      "Michael von Ah",
+      "von Ah",
+      "von Ah Michi",
+      "von Ah Michael",
+      "mva",
+      "mivo",
+      "vom",
+      "Michi v.A.",
+      "Michi vA.",
+      "personalwebsite",
+      "personal homepage",
+      "about me",
+      "website",
+      "portfolio",
+      "Informatiker",
+      "informatics",
+      "IT",
+      "IT guy",
+      "tech enthusiast",
+      "rollercoaster fan",
+      "developer",
+      "system engineer",
+      "lifestyle",
+      "develoment",
+      "technology",
+      "3K"
+      ]
+
 [params]
-    description = ""
-    tags = ""
     author = "Michi von Ah"
     legalLink = "https://legal.michivonah.ch"
     faviconPath = "assets/logo/favicon_256.png"
