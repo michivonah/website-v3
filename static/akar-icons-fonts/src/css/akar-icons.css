@@ -10,6 +10,7 @@ i[class^="ai-"]:before, i[class*=" ai-"]:before {
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
+    font-display: swap;
     text-transform: none;
     line-height: 1;
     -webkit-font-smoothing: antialiased;

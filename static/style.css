@@ -20,7 +20,7 @@ body{
     --secondary: #2980b9;
     --background: #181818;
     --color: #f8f8f8;
-    --font: "Source Sans 3", sans-serif;
+    --font: "Source Sans 3", Arial, Helvetica, sans-serif;
     --border: 2px solid var(--color);
     --borderPrimary: 2px solid var(--primary);
     --baseRadius: 12px;
@@ -268,7 +268,7 @@ nav.small .nav-links a:last-child:focus{
 }
 
 .hero h1{
-    margin: 30px 20px 0;
+    margin: 60px 20px 0;
     font-size: 6rem;
     transition: var(--baseTransition);
     letter-spacing: -0.6rem;

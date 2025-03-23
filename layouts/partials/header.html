@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
+    <meta charset="UTF-8">
     <title>{{ .Site.Title }}</title>
     <meta name="mobile-web-app-title" content="{{ .Site.Title }}">
     <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
@@ -12,10 +13,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.faviconPath | relURL }}">
     <link rel="apple-touch-icon" sizes="167x167" href="{{ .Site.Params.faviconPath | relURL }}">
     <link rel="canonical" href="{{ .Site.BaseURL }}">
-    <script src='{{ "/akar-icons-fonts/src/index.js" | relURL }}'></script>
+    <script src='{{ "/akar-icons-fonts/src/index.js" | relURL }}' async></script>
     <script src='{{ "/main.js" | absURL }}' defer></script>
     <link rel="stylesheet" type="text/css" href='{{ "/style.css" | absURL }}' media="screen"/>
-    <meta charset="UTF-8">
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="keywords" content='{{ delimit site.Params.keywords ", " }}'>
     <meta name="author" content="{{ .Site.Params.author }}">
@@ -24,6 +24,7 @@
 
     <meta property="og:title" content="{{ .Site.Params.author }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:type" content="{{ .Site.Params.pagetype }}" />
     <meta property="og:image" content="{{ .Site.Params.metadataCard | relURL }}">
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:url" content="{{ .Site.BaseURL }}">

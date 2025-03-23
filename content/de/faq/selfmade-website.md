@@ -1,5 +1,5 @@
 ---
-title: "Hast du dieses Website selbst programmiert?"
+title: "Hast du diese Website selbst programmiert?"
 slug: "selfmade-website"
 ---
 
