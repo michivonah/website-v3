@@ -14,11 +14,24 @@ document.addEventListener('DOMContentLoaded', async function(){
     loadMoreContent('.project-list', 6);
 
     // hide loader
-    const loader = document.querySelector('.loadingscreen');
+    /*const loader = document.querySelector('.loadingscreen');
     loader.classList.add('fade-out-no-scale');
     setTimeout(() => {
         loader.classList.add('hidden');
-    }, 250);
+    }, 250);*/
+
+    console.log(
+        "                                                                \n" +
+        "  __  __ _      _     _                                   _     \n" +
+        " |  \\/  (_)    | |   (_)                            /\\   | |    \n" +
+        " | \\  / |_  ___| |__  _    __   _____  _ __        /  \\  | |__  \n" +
+        " | |\\/| | |/ __| '_ \\| |   \\ \\ / / _ \\| '_ \\      / /\\ \\ | '_ \\ \n" +
+        " | |  | | | (__| | | | |    \\ V / (_) | | | |    / ____ \\| | | |\n" +
+        " |_|  |_|_|\\___|_| |_|_|     \\_/ \\___/|_| |_|   /_/    \\_\\_| |_|\n" +
+        "                                                                \n" +
+        "                    Website V3 - michivonah.ch                  \n" +
+        "                                                                \n"
+    );
 });
 
 window.addEventListener('scroll', function(){

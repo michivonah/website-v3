@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
-    <meta charset="UTF-8">
     <title>{{ .Site.Title }}</title>
     <meta name="mobile-web-app-title" content="{{ .Site.Title }}">
     <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+    <meta charset="UTF-8">
     <link id="favicon" rel="icon" type="image/png" href="{{ .Site.Params.faviconPath | relURL }}">
     <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.faviconPathSVG | relURL }}">
     <link rel="shortcut icon" type="image/png" href="{{ .Site.Params.faviconPath | relURL }}">
@@ -15,6 +15,7 @@
     <link rel="canonical" href="{{ .Site.BaseURL }}">
     <script src='{{ "/akar-icons-fonts/src/index.js" | relURL }}' async></script>
     <script src='{{ "/main.js" | absURL }}' defer></script>
+    <link rel="preload" href='{{ "/style.css" | absURL }}' as="style" />
     <link rel="stylesheet" type="text/css" href='{{ "/style.css" | absURL }}' media="screen"/>
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="keywords" content='{{ delimit site.Params.keywords ", " }}'>

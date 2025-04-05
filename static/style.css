@@ -532,6 +532,8 @@ nav.small .nav-links a:last-child:focus{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border: none;
+    outline: none;
     border-radius: var(--baseRadius);
     transition: var(--baseTransition);
     box-shadow: var(--boxShadow);
@@ -590,6 +592,13 @@ nav.small .nav-links a:last-child:focus{
         opacity: 1;
     }
 
+    .card-first img{
+        --buffer: 5px;
+        width: calc(100% + var(--buffer));
+        height: calc(100% + var(--buffer));
+        object-fit: cover;
+    }
+
     .project-card:hover .card-first,
     .project-card:focus .card-first{
         height: 0;
@@ -646,7 +655,7 @@ nav.small .nav-links a:last-child:focus{
 
     .card-first img{
         height: calc(100% + 60px);
-        filter: blur(6px);
+        filter: blur(6px) brightness(0.6);
     }
 
     .card-second{
