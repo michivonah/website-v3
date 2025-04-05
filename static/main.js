@@ -53,6 +53,18 @@ document.querySelector(".project-load-btn").addEventListener('click', function()
     loadMoreContent('.project-list', 3);
 });
 
+document.querySelector(".copyright .close-modal-btn").addEventListener('click', function(){
+    toggleClass(".copyright", "fade-in-no-scale-flex");
+    toggleClass(".copyright", "fade-out-no-scale");
+});
+
+document.querySelector(".copyright-modal-link").addEventListener('click', function(){
+    const copyrightModal = document.querySelector(".copyright");
+    copyrightModal.classList.remove("hidden");
+    copyrightModal.classList.remove("fade-out-no-scale");
+    copyrightModal.classList.add("fade-in-no-scale-flex");
+});
+
 // Generic functions
 function toggleDisplayByClass(className, displayType){
     let items = document.getElementsByClassName(className);

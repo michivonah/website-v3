@@ -1,0 +1,11 @@
+<div class="copyright modal hidden">
+    {{ with .Site.GetPage "copyright" }}
+    <div class="modal-bar">
+        <h1>{{ .Title }}</h1>
+        <button class="close-modal-btn" alt='{{ T "close" }}' title='{{ T "close" }}' name='{{ T "close" }}'><i class='{{ .Params.close_icon }}'></i></button>
+    </div>
+    <div class="modal-content">
+        {{ .Content }}
+    </div>
+    {{ end }}
+</div>

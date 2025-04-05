@@ -1061,6 +1061,84 @@ nav.small .nav-links a:last-child:focus{
     outline: none;
 }
 
+/* COPYRIGHT MODAL */
+.modal{
+    --top: calc(var(--navSmallHeight) - 15px);
+    width: calc(100% - 40px);
+    max-width: 700px;
+    height: auto;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    position: fixed;
+    top: var(--top);
+    left: 50%;
+    transform: translate(-50%, calc(100% - (100% - var(--top))));
+    background: var(--primary);
+    color: var(--color);
+    border-radius: var(--baseRadius);
+    transition: var(--baseTransition);
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 24px var(--background);
+}
+
+.modal.hidden{
+    display: none;
+}
+
+.modal ::selection{
+    background: var(--color);
+    color: var(--secondary);
+}
+
+.modal-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+}
+
+.modal-bar h1{
+    margin-block: 10px;
+}
+
+.modal-bar button{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: 2rem;
+    transition: var(--baseTransition);
+    cursor: pointer;
+}
+
+.modal-bar button:hover,
+.modal-bar abutton:focus{
+    rotate: -45deg;
+    filter: drop-shadow(0 0 0.8rem var(--color));
+}
+
+.modal-content{
+    margin: 0;
+}
+
+.modal-content a{
+    color: var(--color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color);
+    transition: var(--baseTransition);
+}
+
+.modal-content a:hover,
+.modal-content a:focus{
+    background: var(--color);
+    color: var(--secondary);
+    outline: none;
+}
+
 /* GENERAL ANIMATIONS */
 /* only css on scroll animations: https://www.youtube.com/watch?v=0TnO1GzKWPc */
 @media (prefers-reduced-motion: no-preference){
@@ -1098,6 +1176,12 @@ nav.small .nav-links a:last-child:focus{
 
     .fade-in{
         animation: fade-in var(--baseDuration) linear;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+    }
+
+    .fade-in-no-scale-flex{
+        animation: fade-in-no-scale-flex var(--baseDuration) linear;
         animation-fill-mode: forwards;
         overflow: hidden;
     }
@@ -1183,6 +1267,17 @@ nav.small .nav-links a:last-child:focus{
     }
 }
 
+@keyframes fade-in-no-scale-flex{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        display: flex;
+    }
+}
+
 @keyframes fade-out{
     0%{
         opacity: 1;
@@ -1203,5 +1298,6 @@ nav.small .nav-links a:last-child:focus{
 
     100%{
         opacity: 0;
+        display: none;
     }
 }

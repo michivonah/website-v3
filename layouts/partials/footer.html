@@ -2,6 +2,9 @@
     <div class="footer-part">
         <p>&#169; {{ dateFormat "2006" now }}</p>
         <a href="{{ .Site.Params.legalLink }}" alt='{{ T "legal" }}' title='{{ T "legal" }}'>{{ T "legal" }}</a>
+        {{ with .Site.GetPage "copyright" }}
+        <a class="copyright-modal-link" href='#{{ .Params.slug }}' alt='{{ .Title }}' title='{{ .Title }}'>{{ .Title }}</a>
+        {{ end }}
         <div class="sm-icons">
             {{ range .Site.Data.socialmedia }}
                 {{ if .footer }}
