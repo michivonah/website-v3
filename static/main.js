@@ -228,15 +228,27 @@ async function loadMoreContent(wrapperSelector, amount, endpoint = "https://api.
     // just for debugging purposes
     //console.log(`children: ${wrapper.childElementCount} limit: ${amount} page: ${page}`);
 
+    const hideLoadMoreButton = () => {
+        document.querySelector(btnSelector).classList.add('hidden');
+    };
+
     // error validation -> only load more content when page num is valid
     if (page % 1 == 0){
         loader.classList.remove('hidden');
-        await showProjects('.project-list', await loadContent(endpoint, amount, page));
+        const content = await loadContent(endpoint, amount, page);
+        if(Array.isArray(content) && content.length === 0){
+            console.log("No more projects available");
+            // hide button if no more content is available
+            hideLoadMoreButton();
+        }
+        else{
+            // show projects
+            await showProjects('.project-list', content);
+        }
         loader.classList.add('hidden');
     }
     else{
         // hide button if no more content is available
-        document.querySelector(btnSelector).classList.add('hidden');
+        hideLoadMoreButton();
     }
-    
 }

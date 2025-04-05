@@ -411,8 +411,14 @@ nav.small .nav-links a:last-child:focus{
 
 /* PROJECTS */
 .projects{
+    margin-top: 30px;
     text-align: center;
-    scroll-margin-top: calc(var(--navSmallHeight) + 20px);
+    scroll-margin-top: calc(var(--navSmallHeight) + 10px);
+}
+
+.projects-intro{
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .tag-filter{
@@ -425,6 +431,10 @@ nav.small .nav-links a:last-child:focus{
     -webkit-user-select: none;
     user-select: none;
     
+}
+
+.tag-filter.hidden{
+    display: none;
 }
 
 .tag{
@@ -457,7 +467,7 @@ nav.small .nav-links a:last-child:focus{
 }
 
 .project-list{
-    padding: 20px 0;
+    padding: 10px 0 20px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

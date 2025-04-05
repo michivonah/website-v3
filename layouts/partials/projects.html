@@ -1,6 +1,12 @@
 <div id="projects" class="projects">
-    <h1 class="fade-up">{{ T "projects" }}</h1>
-    <div class="tag-filter fade-up">
+    {{ with .Site.GetPage "projects" }}
+    <div class="projects-intro fade-up">
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Content }}</p>
+    </div>
+    {{ end }}
+
+    <div class="tag-filter fade-up hidden">
         {{ range .Site.Data.tags }}
         <label class="tag" for="tag-{{ .slug }}" >
             <input class="tag-checkbox" id="tag-{{ .slug }}" value="{{ .slug }}" type="checkbox" {{ if .checked }} checked {{ end }}>
