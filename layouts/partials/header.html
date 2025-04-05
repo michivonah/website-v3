@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
-    <title>{{ .Site.Title }}</title>
-    <meta name="mobile-web-app-title" content="{{ .Site.Title }}">
-    <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+    <title>{{ .Site.Params.Title }}</title>
+    <meta name="mobile-web-app-title" content="{{ .Site.Params.Title }}">
+    <meta name="apple-mobile-web-app-title" content="{{ .Site.Params.Title }}">
     <meta charset="UTF-8">
     <link id="favicon" rel="icon" type="image/png" href="{{ .Site.Params.faviconPath | relURL }}">
     <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.faviconPathSVG | relURL }}">
@@ -23,14 +23,14 @@
     <meta name="robots" content="index">
     <meta http-equiv="expires" content="43200">
 
-    <meta property="og:title" content="{{ .Site.Params.author }}">
+    <meta property="og:title" content="{{ .Site.Params.Title }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
     <meta property="og:type" content="{{ .Site.Params.pagetype }}" />
     <meta property="og:image" content="{{ .Site.Params.metadataCard | relURL }}">
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:site_name" content="{{ .Site.Params.author }}">
-    <meta property="twitter:title" content="{{ .Site.Params.author }}">
+    <meta property="twitter:title" content="{{ .Site.Params.Title }}">
     <meta property="twitter:description" content="{{ .Site.Params.description }}">
     <meta property="twitter:image" content="{{ .Site.Params.metadataCard | relURL }}">
     <meta name="twitter:image:alt" content="{{ .Site.Params.author }}">
