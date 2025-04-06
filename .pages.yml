@@ -80,7 +80,7 @@ content:
       - name: languages
         label: Languages
         type: object
-        list: true
+        list: object
         fields:
           - name: contentDir
             label: Content directory
