@@ -22,7 +22,7 @@ content:
         type: string
         required: true
       - name: params
-        label: Parameters
+        label: Parameters (General)
         type: object
         fields:
         - name: author
@@ -79,7 +79,7 @@ content:
           label: Umami Website ID
           type: string
 
-      - name: languages.de
+      - name: languages.languages.de
         label: Parameters (de)
         type: object
         fields:
@@ -103,7 +103,7 @@ content:
             required: true
             options:
               min: 0
-          - name: languages.de.params
+          - name: languages.languages.de.params
             label: Metadata
             type: object
             fields:
@@ -123,7 +123,7 @@ content:
                   path: assets/metadata
                   extensions: [jpg, png]
               - name: keywords
-                label: Page title
+                label: Keywords
                 type: string
                 list: true
                 required: false
