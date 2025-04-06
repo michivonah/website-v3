@@ -79,6 +79,59 @@ content:
           label: Umami Website ID
           type: string
 
+      - name: languages.de
+        label: Parameters (de)
+        type: object
+        fields:
+          - name: contentDir
+            label: Content directory
+            description: The directory where the content of the choosen language is stored
+            type: string
+            required: true
+          - name: languageName
+            label: Friendly name
+            type: string
+            required: true
+          - name: languageCode
+            label: Language Code
+            description: Eg. de-CH, en-CH
+            type: string
+            required: true
+          - name: weight
+            label: Weight
+            type: number
+            required: true
+            options:
+              min: 0
+                    - name: languages.de
+          - name: languages.de.params
+            label: Metadata
+            type: object
+            fields:
+              - name: title
+                label: Page title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: string
+                required: true
+              - name: metadataCard
+                label: Profile card for social sharing
+                type: image
+                required: false
+                options:
+                  path: assets/metadata
+                  extensions: [jpg, png]
+              - name: keywords
+                label: Page title
+                type: object
+                list: true
+                required: false
+                fields:
+                  - name: keyword
+
+
 
   - name: socialmedia
     label: Social Media
