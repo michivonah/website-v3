@@ -77,64 +77,57 @@ content:
           label: Umami Website ID
           type: string
 
-  - name: languages
-    label: Languages
+
+
+  - name: socialmedia
+    label: Social Media
     type: file
-    format: toml
-    path: hugo.toml
-    icon: languages
+    path: data/socialmedia.yml
+    icon: instagram
     list: true
     fields:
-    - name: contentDir
-      label: Content directory
-      description: The directory where the content of the choosen language is stored
-      type: string
-      required: true
-    - name: languageName
-      label: Friendly name
-      type: string
-      required: true
-    - name: languageCode
-      label: Language Code
-      description: Eg. de-CH, en-CH
-      type: string
-      required: true
-    - name: weight
-      label: Weight
-      type: number
-      required: true
-      options:
-        min: 0
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: link
+        label: URL
+        type: string
+        required: true
+      - name: icon
+        label: Icon name
+        description: Icon from akaricons.com
+        type: string
+        required: true
+      - name: footer
+        label: Visible in footer?
+        description: Determines if social media icon is visible in footer or not
+        type: boolean
+        default: False
 
-
-
-  - name: projects
-    label: Projects
+  - name: tags
+    label: Project Tags
     type: file
-    path: hugo/data/projects.yml
-    icon: panels-top-left
+    path: data/tags.yml
+    icon: tag
     list: true
     fields:
       - name: title
-        label: Title
-        description: Project Name
+        label: Name
         type: string
         required: true
-      - name: logo
-        label: Logo
-        type: image
-        required: true
-        options:
-          path: hugo/static/media/logos
-          categories: [ image ]
-      - name: backgroundImage
-        label: Background Image
-        type: image
-        required: true
-        options:
-          path: hugo/static/media/backgrounds
-          categories: [ image ]
-      - name: link
-        label: Link
+      - name: slug
+        label: Slug
+        description: How the tags are named under the hood (in the background)
         type: string
-        required: false
+        required: true
+      - name: icon
+        label: Icon name
+        description: Icon from akaricons.com
+        type: string
+        required: true
+      - name: checked
+        label: Enabled by default
+        description: Determines if the tag is shown by default
+        type: boolean
+        default: True
