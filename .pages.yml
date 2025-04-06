@@ -77,34 +77,34 @@ content:
           label: Umami Website ID
           type: string
 
-      - name: languages
-        label: Languages
-        list: true
-        fields:
-          - name: languages.[0]
-            label: Languages
-            type: object
-            fields:
-            - name: contentDir
-              label: Content directory
-              description: The directory where the content of the choosen language is stored
-              type: string
-              required: true
-            - name: languageName
-              label: Friendly name
-              type: string
-              required: true
-            - name: languageCode
-              label: Language Code
-              description: Eg. de-CH, en-CH
-              type: string
-              required: true
-            - name: weight
-              label: Weight
-              type: number
-              required: true
-              options:
-                min: 0
+  - name: languages
+    label: Languages
+    type: file
+    format: toml
+    path: hugo.toml
+    icon: languages
+    list: true
+    fields:
+    - name: contentDir
+      label: Content directory
+      description: The directory where the content of the choosen language is stored
+      type: string
+      required: true
+    - name: languageName
+      label: Friendly name
+      type: string
+      required: true
+    - name: languageCode
+      label: Language Code
+      description: Eg. de-CH, en-CH
+      type: string
+      required: true
+    - name: weight
+      label: Weight
+      type: number
+      required: true
+      options:
+        min: 0
 
 
 
