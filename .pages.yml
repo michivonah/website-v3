@@ -1,0 +1,73 @@
+media:
+  input: static/assets
+  output: /assets
+
+content:
+  - name: general
+    label: General
+    type: file
+    format: toml
+    path: hugo/hugo.toml
+    icon: file-cog
+    fields:
+      - name: baseURL
+        label: Website Base URL
+        type: string
+        required: true
+      - name: defaultContentLanguage
+        label: Default Language
+        description: Internal language code (eg. en, de)
+        type: string
+        required: true
+      - name: params
+        label: Parameters
+        type: object
+        fields:
+        - name: author
+          label: Author
+          type: string
+          required: false
+        - name: pagetype
+          label: Pagetype
+          description: Sets the HTML metatag for pagetype
+          type: string
+          required: false
+        - name: legalLink
+          label: Legal Page URL
+          description: The URL for the link "Legal" in the Footer
+          type: string
+          required: true
+        - name: faviconPath
+          label: Favicon (PNG)
+          type: image
+          required: true
+          options:
+            path: static/assets/logo
+            extensions: [png]
+        - name: faviconPathSVG
+          label: Favicon (SVG)
+          type: image
+          required: true
+          options:
+            path: static/assets/logo
+            extensions: [svg]
+        - name: themeColor
+          label: Theme Color
+          description: Color for browsers head on mobile
+          type: string
+        - name: twitterUsername
+          label: Twitter Username
+          description: Eg. @username
+          type: string
+
+      - name: params
+        label: Analytics
+        type: object
+        fields:
+        - name: umamiUrl
+          label: Umami Script URL
+          type: string
+        - name: websiteId
+          label: Umami Website ID
+          type: string
+
