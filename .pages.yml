@@ -1,6 +1,6 @@
 media:
   input: static/assets
-  output: /assets
+  output: assets
 
 content:
   - name: general
@@ -27,10 +27,25 @@ content:
           label: Author
           type: string
           required: false
+        - name: twitterUsername
+          label: Twitter Username
+          description: Eg. @username
+          type: string
         - name: pagetype
           label: Pagetype
           description: Sets the HTML metatag for pagetype
-          type: string
+          type: select
+          options:
+            values:
+              - value: website
+              - value: article
+              - value: blog
+              - value: book
+              - value: game
+              - value: movie
+              - value: city
+              - value: country
+              - value: profile
           required: false
         - name: legalLink
           label: Legal Page URL
@@ -55,16 +70,39 @@ content:
           label: Theme Color
           description: Color for browsers head on mobile
           type: string
-        - name: twitterUsername
-          label: Twitter Username
-          description: Eg. @username
-          type: string
         - name: umamiUrl
           label: Umami Script URL
           type: string
         - name: websiteId
           label: Umami Website ID
           type: string
+
+      - name: languages
+        label: Languages
+        type: object
+        list: true
+        fields:
+          - name: contentDir
+            label: Content directory
+            description: The directory where the content of the choosen language is stored
+            type: string
+            required: true
+          - name: languageName
+            label: Friendly name
+            type: string
+            required: true
+          - name: languageCode
+            label: Language Code
+            description: Eg. de-CH, en-CH
+            type: string
+            required: true
+          - name: weight
+            label: Weight
+            type: number
+            required: true
+            options:
+              min: 0
+
 
 
   - name: projects
