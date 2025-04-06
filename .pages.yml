@@ -103,7 +103,6 @@ content:
             required: true
             options:
               min: 0
-                    - name: languages.de
           - name: languages.de.params
             label: Metadata
             type: object
@@ -125,11 +124,9 @@ content:
                   extensions: [jpg, png]
               - name: keywords
                 label: Page title
-                type: object
+                type: string
                 list: true
                 required: false
-                fields:
-                  - name: keyword
 
 
 
