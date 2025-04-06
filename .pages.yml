@@ -133,11 +133,58 @@ content:
         type: boolean
         default: True
 
+  - name: hero_de
+    label: Hero Section (de)
+    type: file
+    path: content/de/_index.md
+    icon: house
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slogan
+        label: Slogan
+        type: string
+        required: false
+      - name: firstname
+        label: First name
+        type: string
+        required: false
+      - name: lastname
+        label: Last name
+        type: string
+        required: false
+
+  - name: hero_en
+    label: Hero Section (en)
+    type: file
+    path: content/en/_index.md
+    icon: house
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slogan
+        label: Slogan
+        type: string
+        required: false
+      - name: firstname
+        label: First name
+        type: string
+        required: false
+      - name: lastname
+        label: Last name
+        type: string
+        required: false
+
   - name: content
     label: Content
     type: collection
     path: content
     icon: file-text
+    exclude: [_index.md]
     view:
       fields:
         - title
