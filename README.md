@@ -1,2 +1,9 @@
 # website-v3
-A new website for myself
+![Website-Banner](docs/website-v3.jpg)
+
+**A new website for myself!**
+- full of animations
+- dynamic project loading
+- mobile optimized
+- built with Gohugo
+- editable via Pages CMS
