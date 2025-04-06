@@ -1,0 +1,206 @@
+media:
+  input: static/assets
+  output: assets
+
+settings: false
+
+content:
+  - name: general
+    label: General
+    type: file
+    format: toml
+    path: hugo.toml
+    icon: file-cog
+    fields:
+      - name: baseURL
+        label: Website Base URL
+        type: string
+        required: true
+      - name: defaultContentLanguage
+        label: Default Language
+        description: Internal language code (eg. en, de)
+        type: string
+        required: true
+      - name: params
+        label: Parameters (General)
+        type: object
+        fields:
+        - name: author
+          label: Author
+          type: string
+          required: false
+        - name: twitterUsername
+          label: Twitter Username
+          description: Eg. @username
+          type: string
+        - name: pagetype
+          label: Pagetype
+          description: Sets the HTML metatag for pagetype
+          type: select
+          options:
+            values:
+              - value: website
+              - value: article
+              - value: blog
+              - value: book
+              - value: game
+              - value: movie
+              - value: city
+              - value: country
+              - value: profile
+          required: false
+        - name: legalLink
+          label: Legal Page URL
+          description: The URL for the link "Legal" in the Footer
+          type: string
+          required: true
+        - name: faviconPath
+          label: Favicon (PNG)
+          type: image
+          required: true
+          options:
+            path: static/assets/logo
+            extensions: [png]
+        - name: faviconPathSVG
+          label: Favicon (SVG)
+          type: image
+          required: true
+          options:
+            path: static/assets/logo
+            extensions: [svg]
+        - name: themeColor
+          label: Theme Color
+          description: Color for browsers head on mobile
+          type: string
+        - name: umamiUrl
+          label: Umami Script URL
+          type: string
+        - name: websiteId
+          label: Umami Website ID
+          type: string
+
+  - name: socialmedia
+    label: Social Media
+    type: file
+    path: data/socialmedia.yml
+    icon: instagram
+    list: true
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: link
+        label: URL
+        type: string
+        required: true
+      - name: icon
+        label: Icon name
+        description: Icon from akaricons.com
+        type: string
+        required: true
+      - name: footer
+        label: Visible in footer?
+        description: Determines if social media icon is visible in footer or not
+        type: boolean
+        default: False
+
+  - name: tags
+    label: Project Tags
+    type: file
+    path: data/tags.yml
+    icon: tag
+    list: true
+    fields:
+      - name: title
+        label: Name
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        description: How the tags are named under the hood (in the background)
+        type: string
+        required: true
+      - name: icon
+        label: Icon name
+        description: Icon from akaricons.com
+        type: string
+        required: true
+      - name: checked
+        label: Enabled by default
+        description: Determines if the tag is shown by default
+        type: boolean
+        default: True
+
+  - name: hero_de
+    label: Hero Section (de)
+    type: file
+    path: content/de/_index.md
+    icon: house
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slogan
+        label: Slogan
+        type: string
+        required: false
+      - name: firstname
+        label: First name
+        type: string
+        required: false
+      - name: lastname
+        label: Last name
+        type: string
+        required: false
+
+  - name: hero_en
+    label: Hero Section (en)
+    type: file
+    path: content/en/_index.md
+    icon: house
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slogan
+        label: Slogan
+        type: string
+        required: false
+      - name: firstname
+        label: First name
+        type: string
+        required: false
+      - name: lastname
+        label: Last name
+        type: string
+        required: false
+
+  - name: content
+    label: Content
+    type: collection
+    path: content
+    icon: file-text
+    exclude: [_index.md]
+    view:
+      fields:
+        - title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        description: The slug of the current section (used for the navigation, etc.)
+        type: string
+        required: true
+      - name: body
+        label: Content
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+        required: false
