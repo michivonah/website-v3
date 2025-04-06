@@ -59,11 +59,6 @@ content:
           label: Twitter Username
           description: Eg. @username
           type: string
-          
-      - name: params
-        label: Analytics
-        type: object
-        fields:
         - name: umamiUrl
           label: Umami Script URL
           type: string
