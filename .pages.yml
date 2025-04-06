@@ -7,7 +7,7 @@ content:
     label: General
     type: file
     format: toml
-    path: hugo/hugo.toml
+    path: hugo.toml
     icon: file-cog
     fields:
       - name: baseURL
@@ -59,7 +59,7 @@ content:
           label: Twitter Username
           description: Eg. @username
           type: string
-
+          
       - name: params
         label: Analytics
         type: object
@@ -71,3 +71,34 @@ content:
           label: Umami Website ID
           type: string
 
+
+  - name: projects
+    label: Projects
+    type: file
+    path: hugo/data/projects.yml
+    icon: panels-top-left
+    list: true
+    fields:
+      - name: title
+        label: Title
+        description: Project Name
+        type: string
+        required: true
+      - name: logo
+        label: Logo
+        type: image
+        required: true
+        options:
+          path: hugo/static/media/logos
+          categories: [ image ]
+      - name: backgroundImage
+        label: Background Image
+        type: image
+        required: true
+        options:
+          path: hugo/static/media/backgrounds
+          categories: [ image ]
+      - name: link
+        label: Link
+        type: string
+        required: false
