@@ -1,6 +1,7 @@
 ---
 title: About me
 slug: about
+image: "/assets/about-me/about-me.webp"
 ---
 Hi! My name is Michi and I'm interested in smartphones, computers, e-mobility and other exciting technology.
 
