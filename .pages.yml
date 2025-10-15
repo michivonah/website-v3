@@ -78,6 +78,10 @@ content:
         - name: websiteId
           label: Umami Website ID
           type: string
+        - name: factsUrl
+          label: Facts JSON URL
+          description: URL to fetch facts data from
+          type: string
 
   - name: socialmedia
     label: Social Media

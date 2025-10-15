@@ -100,29 +100,65 @@ function updateNavStyle(){
     document.querySelector("nav").classList.toggle("small", window.scrollY > 20);
 }
 
-// intersection observer for animations
-// credits: https://coolcssanimation.com/how-to-trigger-a-css-animation-on-scroll/
+/**
+ * Template for easily creating a IntersectionObserver
+ * @param {*} triggerElement Element which triggers the IntersectionObserver
+ * @param {*} callback Function which gets interesction object back
+ * @param {*} rootMargin Parameter rootMargin of the IntersectionObserver
+ * @param {*} threshold  Parameter threshold of the IntersectionObserver
+ * @returns IntersectionObserver
+ */
+function createIntersectionObserver(triggerElement, callback, rootMargin = '0px 0px 5% 0px', threshold = 0.1){
+    if(triggerElement){
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {     
+              callback(entry);
+            });
+        }, { rootMargin, threshold });
+        return observer.observe(triggerElement);
+    }
+}
+
+/**
+ * Function which applies an IntersectionObserver
+ * for running animations on scroll/visibility of a container.
+ * 
+ * Original inspiration: https://coolcssanimation.com/how-to-trigger-a-css-animation-on-scroll/
+ * @param {*} triggerSelector Query selector of the element, which should trigger the animation
+ * @param {*} animationClass Class to append when animation is triggered
+ * @param {*} targetElement Element to apply the animation (css class) to. Will applied to triggerSelector if not defined.
+ * @returns IntersectionObserver
+ */
 function animationOnScroll(triggerSelector, animationClass, targetElement){
     const trigger = document.querySelector(triggerSelector);
     const target = ((targetElement) ? document.querySelector(targetElement) : trigger);
 
-    if(trigger){
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {     
-              if (entry.isIntersecting) {
-                target.classList.add(animationClass);
-              }
-              else{
-                target.classList.remove(animationClass);
-              }
-            });
-        }, { rootMargin: '0px 0px 5% 0px', threshold: 0.1 });
-          
-        return observer.observe(trigger);
-    }
+    return createIntersectionObserver(trigger, (entry) => {
+        entry.isIntersecting ? target.classList.add(animationClass) : target.classList.remove(animationClass);
+    });
 }
 
+/**
+ * Creates IntersectionObserver for triggering counter animation
+ * @param {*} elementSelector Selector of the element(s) to apply the counter effect to
+ * @param {*} cssPropertyName CSS Property with counter's value
+ * @param {*} valueAttribute HTML data attribute with the counter's final value
+ */
+function countOnScroll(elementSelector, cssPropertyName, valueAttribute){
+    const items = document.querySelectorAll(elementSelector);
+
+    items.forEach(element => {
+        const value = parseInt(element.getAttribute(valueAttribute));
+
+        createIntersectionObserver(element, (entry) => {
+            element.style.setProperty(cssPropertyName, entry.isIntersecting  ? value : 0);
+        });
+    });
+}
+
+// apply on scroll effects
 animationOnScroll('.contact-title-wrapper', 'typewriter-animation', '.contact-title');
+countOnScroll('.fact-counter', '--factCounter', 'data-count');
 
 // calculate age
 function calculateAge(selector){

@@ -1,0 +1,34 @@
+<div id="facts" class="facts">
+    <div class="facts-intro fade-up">
+        {{ with .Site.GetPage "facts" }}
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Content }}</p>
+        {{ end }}
+    </div>
+    <div class="fact-container">
+        {{ $url := .Site.Params.factsUrl }}
+        {{ with try (resources.GetRemote $url) }}
+            {{ with .Err }}
+                {{ errorf "%s" . }}
+                {{ else with .Value }}
+                    {{ $facts := . | transform.Unmarshal }}
+                    {{ if $facts }}
+                        {{ range $fact := $facts }}
+                            {{ $count := 0 }}
+                            {{ if isset $fact "total" }}
+                                {{ $count = $fact.total }}
+                            {{ else if isset $fact "items" }}
+                                {{ $count = len $fact.items }}
+                            {{ end }}
+                        <div class="fact fade-up">
+                            <p class="fact-counter" data-count="{{ $count }}"></p>
+                            <p>{{ index $fact.titles $.Lang }}</p>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                    {{ errorf "Unable to get remote resource %q" $url }}
+                    {{ end }}
+                {{ end }}
+        {{ end }}
+    </div>
+</div>

@@ -777,6 +777,71 @@ nav.small .nav-links a:last-child:focus{
     }
 }
 
+/* FACTS */
+.facts{
+    margin-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    scroll-margin-top: calc(var(--navSmallHeight) + 10px);
+}
+
+.fact-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fact{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+    padding-block: 40px 20px;
+}
+
+.fact p{
+    margin: 5px 0;
+    padding: 0;
+}
+
+@media screen and (max-width:690px){
+    .fact-container{
+        flex-direction: column;
+    }
+
+    .fact{
+        padding-block: 10px;
+    }
+}
+
+@property --factCounter{
+    syntax: '<integer>';
+    initial-value: 0;
+    inherits: false;
+}
+
+.fact-counter{
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    transition: --factCounter 1s, var(--baseTransition);
+    counter-reset: factCounter var(--factCounter);
+}
+
+@media (pointer: fine){
+    .fact-counter:hover,
+    .fact-counter:focus{
+        transform: scale(1.1);
+        transition: var(--baseTransition);
+        filter: drop-shadow(0 0 0.6rem var(--primary));
+    }
+}
+
+.fact-counter::after{
+    content: counter(factCounter);
+}
+
 /* FAQ */
 .faq{
     padding-block: 40px;

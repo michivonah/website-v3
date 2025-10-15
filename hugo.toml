@@ -99,3 +99,4 @@ defaultContentLanguage = 'de'
     twitterUsername = "@michivonah"
     umamiUrl = "https://data.mchvnh.ch/script.js"
     websiteId = "9b188ed8-77b0-4238-aef5-c1b3d48106e4"
+    factsUrl = "https://cdn.michivonah.ch/facts.json"
