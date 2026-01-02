@@ -12,3 +12,8 @@
   slug: github
   icon: ai-github-fill
   checked: True
+
+- title: Scratch
+  slug: scratch
+  icon: ai-game-controller
+  checked: True
